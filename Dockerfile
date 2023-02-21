@@ -5,7 +5,7 @@ MAINTAINER Sita Liu <chsliu+docker@gmail>
 RUN echo root:pass | chpasswd && \
 	echo "Acquire::GzipIndexes \"false\"; Acquire::CompressionTypes::Order:: \"gz\";" >/etc/apt/apt.conf.d/docker-gzip-indexes && \
 	apt-get update && \
-	apt-get install -y \
+	apt-get install -y --force-yes \
 	wget \
 	locales && \
 	dpkg-reconfigure locales && \
@@ -16,7 +16,7 @@ RUN echo root:pass | chpasswd && \
 	echo "deb http://download.webmin.com/download/repository sarge contrib" >> /etc/apt/sources.list && \
 	echo "deb http://webmin.mirror.somersettechsolutions.co.uk/repository sarge contrib" >> /etc/apt/sources.list && \
 	apt-get update && \
-	apt-get install -y webmin && \
+	apt-get install -y --force-yes webmin && \
 	apt-get clean
 
 
